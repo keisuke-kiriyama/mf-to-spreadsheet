@@ -1,0 +1,11 @@
+version: '3'
+services:
+  app:
+    build: .
+    container_name: 'mf-to-spreadsheet'
+    volumes:
+      - ./src:/root/src
+      - ~/.credential:/root/credentials
+    working_dir: '/root/src'
+    tty: true
+    command: python mf_to_spreadsheet.py
