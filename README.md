@@ -4,6 +4,8 @@ MoneyForwardのデータをSpreadSheetに連携するスクリプト。
 
 ## バッチの実行
 
+[MoneyForwardのデータ](https://moneyforward.com/cf)を`src.csv`の命名でダウンロードし、`src`配下に配置したら以下を実行する。
+
 ```sh
 docker compose up
 ```
