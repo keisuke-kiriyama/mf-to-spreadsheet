@@ -32,10 +32,15 @@ def load_expense_data():
     reader = csv.reader(csvfile)
     expense_items = []
     for index, row in enumerate(reader):
-        if index == 0 or row[5] == '収入':
-           continue
-        elif row[5] == '未分類':
-            print('未分類の項目があります。')
+        should_calculate = row[0] == '1'
+        category = row[5]
+        if index == 0 or not should_calculate or category == '収入':
+            continue
+        elif category == '未分類':
+            print('未分類の項目があります。支出用途を設定してください。')
+            sys.exit(1)
+        elif category == '現金・カード':
+            print('現金・カードの項目があります。支出用途を設定してください。')
             sys.exit(1)
         expense_items.append(
             {'date': row[1],
